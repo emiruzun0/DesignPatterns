@@ -2,7 +2,7 @@ package memento;
 
 public class EditorState {
 
-    private final String content;
+    private String content;
 
     public EditorState(String content) {
         this.content = content;
@@ -11,4 +11,14 @@ public class EditorState {
     public String getContent() {
         return content;
     }
+
+    public EditorState createState(){
+        return new EditorState(content);
+    }
+
+    public void restore(EditorState state){
+        content = state.getContent();
+    }
+
+
 }
